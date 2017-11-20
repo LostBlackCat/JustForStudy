@@ -1,5 +1,7 @@
 //单链表.cpp
+
 #include "stdafx.h"
+//Head file included above.
 
 struct node
 {
