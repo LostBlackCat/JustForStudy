@@ -1,4 +1,4 @@
-//单链表orig。cpp
+//单链表orig.cpp
 template<class Type>
 class Node
 {
