@@ -41,10 +41,52 @@ void Display()
 	{
 		cout << p->data << "[" << p << "]" << "=>";
 		p = p->next;
-		cout << "NULL" << endl;
 	}
+	cout << "NULL" << endl;
+
 }
 
+Node * Search(int n)
+{
+	int flag = 0;
+	Node *p = head;
+	while (p!=NULL)
+	{
+		if (p->data == n)
+		{
+			flag = true;
+			break;
+		}
+		p = p->next;
+	}
+	if (flag == 0)
+		return NULL;
+	else
+		return p;
+}
+
+void Delete(Node *DelNode)
+{
+	Node *p;
+	if (head==NULL)
+	{
+		cout << "Empty linked list." << endl;
+		return;
+	}
+	if (DelNode==NULL)
+	{
+		cout << "No such a node in linked list. " << endl;
+	}
+	if (DelNode==head)
+	{
+		if (head->next!=NULL)
+		{
+			head = head->next;
+			delete DelNode;
+		}
+		//TODO
+	}
+}
 int main()
 {
 
