@@ -4,7 +4,6 @@
 //#include<iostream>
 using namespace std;
 
-typedef int nico;
 struct  Node
 {
 	int data;
