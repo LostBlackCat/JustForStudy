@@ -90,13 +90,13 @@ void Delete(Node *DelNode)
 		//TODO
 	}
 }
-int main()
-{
-
-	head = new Node;
-	head = NULL;
-	Create(10086);
-	cout << "Bytes occupied by nodes is " << sizeof(Node) << endl;
-	Display();
-	return 0;
-}
+//int main()
+//{
+//
+//	head = new Node;
+//	head = NULL;
+//	Create(10086);
+//	cout << "Bytes occupied by nodes is " << sizeof(Node) << endl;
+//	Display();
+//	return 0;
+//}
