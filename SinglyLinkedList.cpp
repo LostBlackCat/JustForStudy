@@ -42,7 +42,7 @@ void Display()
 	}
 	while (p!=NULL)
 	{
-		cout << p->data << "[" << p << "]" << "=>";
+		cout << p->data << "[" << p << "]" << endl;
 		p = p->next;
 	}
 	cout << "NULL" << endl;
@@ -95,7 +95,7 @@ int main()
 
 	head = new Node;
 	head = NULL;
-	Create(5);
+	Create(10086);
 	cout << "Bytes occupied by nodes is " << sizeof(Node) << endl;
 	Display();
 	return 0;
