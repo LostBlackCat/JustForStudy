@@ -1,5 +1,5 @@
 //SequenceList.h
-//Ë³Ğò±í
+//é¡ºåºè¡¨
 
 #ifndef IOSTREAM
 #define IOSTREAM
@@ -11,73 +11,73 @@
 /*
 ADT List
 {
-Êı¾İ¶ÔÏó:D;
-Êı¾İ¹ØÏµ:R;
-»ù±¾²Ù×÷:
-	InitList(L);	//¹¹ÔìÒ»¸ö¿ÕµÄÏßĞÔ±íL
-	ClearList(L);	//Çå¿ÕÏßĞÔ±íL
-	EmptyList(L);	//²âÊÔÏßĞÔ±íLÊÇ·ñÎª¿Õ£¬£¨¿Õ=True£©
-	LengthList(L);	//ÇóÏßĞÔ±íLµÄ³¤¶È
-	TraverseList(L);	//·ÃÎÊÏßĞÔ±íLµÄÃ¿¸öÔªËØÒ»´Î
-	InsertList(L,i,e);	//½«ÔªËØe²åÈëµ½ÏßĞÔ±íLµÄµÚi ¸öÎ»ÖÃÉÏ£¬ÏßĞÔ±í³¤¶È¼Ó1
-	DeleteList(L,i,e);	//É¾³ıÏßĞÔ±íLµÚi¸öÎ»ÖÃÉÏµÄÔªËØ²¢½«Æä´æµ½eÖĞ£¬ÏßĞÔ±í³¤¶È¼õ1
-	LocateList(e,L);	//·µ»ØÔªËØeÔÙÏßĞÔ±íLÖĞµÚÒ»´Î³öÏÖµÄÎ»ÖÃ£¬ÈçÎ´³öÏÖ·µ»Ø0
-	GetElem(L,i,e);	//ÔÚÏßĞÔ±íLÖĞ£¬»ñÈ¡µÚi¸öÎ»ÖÃÉÏµÄÔªËØ£¬²¢½«Æä´æµ½eÖĞ
+æ•°æ®å¯¹è±¡:D;
+æ•°æ®å…³ç³»:R;
+åŸºæœ¬æ“ä½œ:
+	InitList(L);	//æ„é€ ä¸€ä¸ªç©ºçš„çº¿æ€§è¡¨L
+	ClearList(L);	//æ¸…ç©ºçº¿æ€§è¡¨L
+	EmptyList(L);	//æµ‹è¯•çº¿æ€§è¡¨Læ˜¯å¦ä¸ºç©ºï¼Œï¼ˆç©º=Trueï¼‰
+	LengthList(L);	//æ±‚çº¿æ€§è¡¨Lçš„é•¿åº¦
+	TraverseList(L);	//è®¿é—®çº¿æ€§è¡¨Lçš„æ¯ä¸ªå…ƒç´ ä¸€æ¬¡
+	InsertList(L,i,e);	//å°†å…ƒç´ eæ’å…¥åˆ°çº¿æ€§è¡¨Lçš„ç¬¬i ä¸ªä½ç½®ä¸Šï¼Œçº¿æ€§è¡¨é•¿åº¦åŠ 1
+	DeleteList(L,i,e);	//åˆ é™¤çº¿æ€§è¡¨Lç¬¬iä¸ªä½ç½®ä¸Šçš„å…ƒç´ å¹¶å°†å…¶å­˜åˆ°eä¸­ï¼Œçº¿æ€§è¡¨é•¿åº¦å‡1
+	LocateList(e,L);	//è¿”å›å…ƒç´ eå†çº¿æ€§è¡¨Lä¸­ç¬¬ä¸€æ¬¡å‡ºç°çš„ä½ç½®ï¼Œå¦‚æœªå‡ºç°è¿”å›0
+	GetElem(L,i,e);	//åœ¨çº¿æ€§è¡¨Lä¸­ï¼Œè·å–ç¬¬iä¸ªä½ç½®ä¸Šçš„å…ƒç´ ï¼Œå¹¶å°†å…¶å­˜åˆ°eä¸­
 }ADT List;
 */
 
-//Ö´ĞĞ×´Ì¬²ÎÊı±í
-#define OK 0							//³É¹¦Ö´ĞĞ
-#define Err_Memory -1				//ÄÚ´æ·ÖÅä´íÎó
-#define Err_InvaildParam -2		//ÊäÈë²ÎÊıÎŞĞ§
-#define Err_Overflow -3			//Òç³ö´íÎó
-#define Err_IllegalPos -4			//·Ç·¨Î»ÖÃ
-#define Err_NoResult				//ÎŞ·µ»Ø½á¹û»ò·µ»Ø½á¹ûÎª¿Õ
-typedef int Status;						//×´Ì¬ÖµÊµÀı»¯ÎªÕûĞÎ
+//æ‰§è¡ŒçŠ¶æ€å‚æ•°è¡¨
+#define OK 0							//æˆåŠŸæ‰§è¡Œ
+#define Err_Memory -1				//å†…å­˜åˆ†é…é”™è¯¯
+#define Err_InvaildParam -2		//è¾“å…¥å‚æ•°æ— æ•ˆ
+#define Err_Overflow -3			//æº¢å‡ºé”™è¯¯
+#define Err_IllegalPos -4			//éæ³•ä½ç½®
+#define Err_NoResult				//æ— è¿”å›ç»“æœæˆ–è¿”å›ç»“æœä¸ºç©º
+typedef int Status;						//çŠ¶æ€å€¼å®ä¾‹åŒ–ä¸ºæ•´å½¢
 
-#define Max_Length 100		//Ë³Ğò±íµÄ×î´ó³¤¶È
-#define Increment_Length 0		//Ë³Ğò±íµÄ¿Õ¼ä·ÖÅäÔöÁ¿
+#define Max_Length 100		//é¡ºåºè¡¨çš„æœ€å¤§é•¿åº¦
+#define Increment_Length 0		//é¡ºåºè¡¨çš„ç©ºé—´åˆ†é…å¢é‡
 typedef int ElemType;
 
 typedef struct
 {
-	ElemType * data;		//dataÖ¸Ïò´¢´æÔªËØµÄÒ»Î¬Êı×é£¬³õÊ¼´óĞ¡ÎªMax_Length
-	int Length;		//Ë³Ğò±íµÄÊµ¼Ê³¤¶È£¬ÆäÖµ´óĞ¡µÈÓÚListLength
-	int ListLength;		//µ±Ç°Ë³Ğò±í·ÖÅäµÄ¿Õ¼ä´óĞ¡£¬³õÊ¼ÖµÎªMaxLength
+	ElemType * data;		//dataæŒ‡å‘å‚¨å­˜å…ƒç´ çš„ä¸€ç»´æ•°ç»„ï¼Œåˆå§‹å¤§å°ä¸ºMax_Length
+	int Length;		//é¡ºåºè¡¨çš„å®é™…é•¿åº¦ï¼Œå…¶å€¼å¤§å°ç­‰äºListLength
+	int ListLength;		//å½“å‰é¡ºåºè¡¨åˆ†é…çš„ç©ºé—´å¤§å°ï¼Œåˆå§‹å€¼ä¸ºMaxLength
 }SeqList;
 
-//³õÊ¼»¯Ë³Ğò±í
+//åˆå§‹åŒ–é¡ºåºè¡¨
 Status InitList(SeqList *L)
 {
-	//L->data = (ElemType *)malloc(Max_Length * sizeof(ElemType));	//·ÖÅäÄÚ´æ¿Õ¼ä(CÓïÑÔÊµÏÖ·½·¨)
-	L->data = new ElemType ;	//·ÖÅäÄÚ´æ¿Õ¼ä
-	if (!L->data)		//·ÖÅäÊ§°Ü·µ»Ø´íÎó
+	//L->data = (ElemType *)malloc(Max_Length * sizeof(ElemType));	//åˆ†é…å†…å­˜ç©ºé—´(Cè¯­è¨€å®ç°æ–¹æ³•)
+	L->data = new ElemType ;	//åˆ†é…å†…å­˜ç©ºé—´
+	if (!L->data)		//åˆ†é…å¤±è´¥è¿”å›é”™è¯¯
 		return Err_Memory;
-	L->Length = 0;		//Êµ¼Ê³¤¶ÈÖÃ0
-	L->ListLength = Max_Length;	//´¢´æ±í´óĞ¡ÖÃÎªMax_Length
-	return OK;			//³É¹¦·µ»Ø
+	L->Length = 0;		//å®é™…é•¿åº¦ç½®0
+	L->ListLength = Max_Length;	//å‚¨å­˜è¡¨å¤§å°ç½®ä¸ºMax_Length
+	return OK;			//æˆåŠŸè¿”å›
 }
 
-//Çå¿ÕÏßĞÔ±í
+//æ¸…ç©ºçº¿æ€§è¡¨
 Status ClearList(SeqList *L)
 {
-	L->Length = 0;	//ÏßĞÔ±íÊµ¼Ê³¤¶ÈÖÃ0
-	return OK;	//³É¹¦·µ»Ø
+	L->Length = 0;	//çº¿æ€§è¡¨å®é™…é•¿åº¦ç½®0
+	return OK;	//æˆåŠŸè¿”å›
 }
 
-//²âÊÔÏßĞÔ±íÊÇ·ñÎª¿Õ
+//æµ‹è¯•çº¿æ€§è¡¨æ˜¯å¦ä¸ºç©º
 bool EmptyList(SeqList *L)
 {
 	return(L->Length == 0);
 }
 
-//ÇóÏßĞÔ±íµÄ³¤¶È
+//æ±‚çº¿æ€§è¡¨çš„é•¿åº¦
 int LengthList(SeqList *L)
 {
 	return L->Length;
 }
 
-//±éÀúÏßĞÔ±í
+//éå†çº¿æ€§è¡¨
 void TraverseList(SeqList *L)
 {
 	for (int i = 0; i < L->Length; i++)

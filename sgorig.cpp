@@ -1,4 +1,4 @@
-//µ¥Á´±íorig.cpp
+//ÂµÂ¥ÃÂ´Â±Ã­orig.cpp
 template<class Type>
 class Node
 {
