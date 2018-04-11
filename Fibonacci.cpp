@@ -15,6 +15,6 @@ int main()
 	int n;
 	cout<<"Input the n:";
 	cin>>n;
-	cout<<"The result is"<<f(n);
+	cout<<"The result is: "<<f(n)<<endl;
 	return 0;
 }
