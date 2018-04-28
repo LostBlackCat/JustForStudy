@@ -5,3 +5,4 @@ b=map(sum,c)
 print(b)
 import math
 print(math.sin(2))
+print(type(b))
