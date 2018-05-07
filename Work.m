@@ -1,7 +1,13 @@
 %function Work()
 clear
-clc
-clf
+fig=figure
+figure(fig)
+set(fig,'MenuBar','none')
+menuGame=uimenu(fig,'label','Game')
+    menuGameStart=uimenu(menuGame,'label','Start')
+menuHelp=uimenu(fig,'label','Help')
+menuAbout=uimenu(fig,'label','About')
+
 global mat;
 mat=[0 0 0 0;0 0 0 0;0 0 0 0;0 0 0 0];
 axis equal
@@ -19,12 +25,12 @@ for i=1:20
     mat(ranX,ranY)=2;
 end
 
-downdate()
-left()
-right()
-down()
+update()
 
-function downdate()
+up()
+update()
+
+function update()
     %global
     global mat
     global length
@@ -46,7 +52,7 @@ function  left()
     leftMove();
     leftAdd();
     leftMove();
-    downdate();
+    update();
 end
 function leftMove()
     %global
@@ -97,7 +103,7 @@ function  right()
     rightMove();
     rightAdd();
     rightMove();
-    downdate();
+    update();
 end
 function rightMove()
     %global
@@ -148,7 +154,7 @@ function  down()
     downMove();
     downAdd();
     downMove();
-    downdate();
+    update();
 end
 function downMove()
     %global
@@ -170,6 +176,55 @@ function downMove()
     
 end
 function downAdd()
+    %global
+    global mat
+    global length
+    
+    for i=1:length
+        for j=1:length
+            if mat(i,j)==0
+                continue;
+            end
+            if j<length
+                if mat(i,j)==mat(i,j+1)
+                    mat(i,j)=2.*mat(i,j);
+                    mat(i,j+1)=0;
+                end
+            end
+        end
+    end
+end
+%%%%
+%%%%
+% up
+%%%%
+%%%%
+function  up()
+    upMove();
+    upAdd();
+    upMove();
+    update();
+end
+function upMove()
+    %global
+    global mat
+    global length
+
+    for i=length:-1:1
+        for j=length:-1:1
+            if mat(i,j)==0
+                for k=j-1:-1:1
+                    if mat(i,k)~=0
+                        mat(i,j)=mat(i,k);
+                        mat(i,k)=0;
+                    end
+                end
+            end
+        end
+    end
+    
+end
+function upAdd()
     %global
     global mat
     global length
