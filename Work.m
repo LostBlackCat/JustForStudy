@@ -1,34 +1,50 @@
-%function Work()
 clear
-fig=figure
+fig=figure;
 figure(fig)
 set(fig,'MenuBar','none')
-menuGame=uimenu(fig,'label','Game')
-    menuGameStart=uimenu(menuGame,'label','Start')
-menuHelp=uimenu(fig,'label','Help')
-menuAbout=uimenu(fig,'label','About')
+menuGame=uimenu(fig,'label','Game');
+    menuGameStart=uimenu(fig,'label','Start');
+    set(menuGameStart,'callback','');
+txtHelp='msgbox({''点击方向键推动元素'',''尽可能获得最高分！''},''Help'',''warn'')';
+menuHelp=uimenu(fig,'label','Help','callback',txtHelp);
+menuAbout=uimenu(fig,'label','About');
 
 global mat;
 mat=[0 0 0 0;0 0 0 0;0 0 0 0;0 0 0 0];
 axis equal
 axis square
 axis off
-
+hold on
 global length;
 length=4;
-hold on
-
-%Initialization
-for i=1:20
-    ranX=fix(4*rand())+1;
-    ranY=fix(4*rand())+1;
-    mat(ranX,ranY)=2;
-end
-
+handle(fig);
+butUp=uicontrol(fig,'style','pushbutton','string','Up','position',[0 5 4 4]);
+initialization();
 update()
 
 up()
 update()
+function CallbackFunction (src,evnt)
+      %src：产生事件的对象
+      %evnt：事件数据
+      ...
+end
+function initialization()
+    %global
+    global length
+    global mat
+    for i=1:length
+        for j=1:length
+            mat(i,j)=0;
+        end
+    end 
+    for i=1:20
+        ranX=fix(4*rand())+1;
+        ranY=fix(4*rand())+1;
+        mat(ranX,ranY)=2;
+    end
+    update();
+end
 
 function update()
     %global
