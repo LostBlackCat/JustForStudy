@@ -114,10 +114,15 @@ int add(int a, int b)
 {
 	return a + b;
 }
-
+int getMain();
 /////////////////////////////////////////////////////////////////////////////////////////
 int main()
 {
+	if (true)
+	{
+		getMain();
+		return 0;
+	}
 	using std::fstream;
 	using std::cout;
 	using std::cin;
@@ -153,7 +158,7 @@ int main()
 		throw(expA);
 		
 	}
-	catch (A<int>  & a)
+	catch (A<int>  & )
 	{
 		std::cout << "A called\n";
 	}
