@@ -58,9 +58,9 @@ void Dialog::showArea()
 {
   bool ok;
   QString tempStr;
-  QString valueStr=ui->radiusLineEdit->text();
+  QString valueStr=lineEdit->text();
   int valueInt=valueStr.toInt(&ok);
   double area=valueInt*valueInt*PI;
   //Caluclating circle's area;
-  ui->areaLabel_2->setText(tempStr.setNum(area));
+  label2->setText(tempStr.setNum(area));
 }

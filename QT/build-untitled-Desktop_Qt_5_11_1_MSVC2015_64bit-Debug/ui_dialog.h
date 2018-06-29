@@ -31,24 +31,24 @@ public:
     {
         if (Dialog->objectName().isEmpty())
             Dialog->setObjectName(QStringLiteral("Dialog"));
-        Dialog->resize(384, 248);
+        Dialog->resize(397, 402);
         radiusLabel = new QLabel(Dialog);
         radiusLabel->setObjectName(QStringLiteral("radiusLabel"));
-        radiusLabel->setGeometry(QRect(50, 70, 72, 15));
+        radiusLabel->setGeometry(QRect(40, 300, 72, 15));
         areaLabel_2 = new QLabel(Dialog);
         areaLabel_2->setObjectName(QStringLiteral("areaLabel_2"));
-        areaLabel_2->setGeometry(QRect(260, 70, 72, 15));
+        areaLabel_2->setGeometry(QRect(250, 300, 72, 15));
         areaLabel_2->setFrameShape(QFrame::Panel);
         areaLabel_2->setFrameShadow(QFrame::Sunken);
         areaLabel_1 = new QLabel(Dialog);
         areaLabel_1->setObjectName(QStringLiteral("areaLabel_1"));
-        areaLabel_1->setGeometry(QRect(170, 70, 72, 15));
+        areaLabel_1->setGeometry(QRect(160, 300, 72, 15));
         radiusLineEdit = new QLineEdit(Dialog);
         radiusLineEdit->setObjectName(QStringLiteral("radiusLineEdit"));
-        radiusLineEdit->setGeometry(QRect(210, 180, 113, 21));
+        radiusLineEdit->setGeometry(QRect(210, 340, 113, 21));
         CountBtn = new QPushButton(Dialog);
         CountBtn->setObjectName(QStringLiteral("CountBtn"));
-        CountBtn->setGeometry(QRect(80, 170, 93, 28));
+        CountBtn->setGeometry(QRect(80, 330, 93, 28));
 
         retranslateUi(Dialog);
 
