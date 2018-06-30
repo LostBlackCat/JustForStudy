@@ -15,6 +15,8 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -26,6 +28,8 @@ public:
     QLabel *areaLabel_1;
     QLineEdit *radiusLineEdit;
     QPushButton *CountBtn;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
 
     void setupUi(QDialog *Dialog)
     {
@@ -49,6 +53,14 @@ public:
         CountBtn = new QPushButton(Dialog);
         CountBtn->setObjectName(QStringLiteral("CountBtn"));
         CountBtn->setGeometry(QRect(80, 330, 93, 28));
+        verticalLayoutWidget = new QWidget(Dialog);
+        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(0, 280, 351, 111));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
 
         retranslateUi(Dialog);
 
