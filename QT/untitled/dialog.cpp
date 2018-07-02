@@ -17,6 +17,8 @@ Dialog::Dialog(QWidget *parent) :
     button =new QPushButton(this);
     button->setText((tr("显示对应圆的面积")));
     label1->setBuddy(lineEdit);
+    connect(lineEdit,SIGNAL(textChanged(QString)),button,SLOT(click()));
+    connect(button,SIGNAL(clicked(bool)),lineEdit,SIGNAL(textChanged(QString)));
     QGridLayout *mainLayout=new QGridLayout(this);
 
     //Another try;
