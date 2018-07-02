@@ -10,12 +10,13 @@ Dialog::Dialog(QWidget *parent) :
     ui->setupUi(this);
 
     //Another try
-    label1=new QLabel(this);
-    label1->setText(tr("显示对应圆的面积"));
+    label1=new QLabel("&Calculator",this);
+    //label1->setText(tr("显示对应圆的面积"));
     lineEdit=new QLineEdit(this);
     label2 =new QLabel(this);
     button =new QPushButton(this);
     button->setText((tr("显示对应圆的面积")));
+    label1->setBuddy(lineEdit);
     QGridLayout *mainLayout=new QGridLayout(this);
 
     //Another try;

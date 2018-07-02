@@ -15,8 +15,6 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QVBoxLayout>
-#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -28,8 +26,6 @@ public:
     QLabel *areaLabel_1;
     QLineEdit *radiusLineEdit;
     QPushButton *CountBtn;
-    QWidget *verticalLayoutWidget;
-    QVBoxLayout *verticalLayout;
 
     void setupUi(QDialog *Dialog)
     {
@@ -53,14 +49,6 @@ public:
         CountBtn = new QPushButton(Dialog);
         CountBtn->setObjectName(QStringLiteral("CountBtn"));
         CountBtn->setGeometry(QRect(80, 330, 93, 28));
-        verticalLayoutWidget = new QWidget(Dialog);
-        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(0, 280, 351, 111));
-        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
-        verticalLayout->setSpacing(6);
-        verticalLayout->setContentsMargins(11, 11, 11, 11);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
 
         retranslateUi(Dialog);
 
@@ -70,7 +58,7 @@ public:
     void retranslateUi(QDialog *Dialog)
     {
         Dialog->setWindowTitle(QApplication::translate("Dialog", "Dialog", nullptr));
-        radiusLabel->setText(QApplication::translate("Dialog", "\345\215\212\345\276\204\357\274\232", nullptr));
+        radiusLabel->setText(QApplication::translate("Dialog", "&a \345\215\212\345\276\204\357\274\232", nullptr));
         areaLabel_2->setText(QApplication::translate("Dialog", "TextLabel", nullptr));
         areaLabel_1->setText(QApplication::translate("Dialog", "\351\235\242\347\247\257\357\274\232", nullptr));
         CountBtn->setText(QApplication::translate("Dialog", "\350\256\241\347\256\227", nullptr));

@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>半径：</string>
+    <string>&amp;a 半径：</string>
    </property>
   </widget>
   <widget class="QLabel" name="areaLabel_2">
@@ -80,17 +80,6 @@
    <property name="text">
     <string>计算</string>
    </property>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>280</y>
-     <width>351</width>
-     <height>111</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout"/>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
