@@ -27,6 +27,9 @@ Dialog::Dialog(QWidget *parent) :
     mainLayout->addWidget(label2,1,0);
     mainLayout->addWidget(button,1,1);
     connect(button,SIGNAL(clicked()),this,SLOT(showArea()));
+
+    init();
+    connect(ui->treeWidget,SIGNAL(it))
 }
 
 Dialog::~Dialog()

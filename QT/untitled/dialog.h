@@ -5,6 +5,7 @@
 #include<QLabel>
 #include<QLineEdit>
 #include<QPushButton>
+#include<QTreeWidget>
 
 
 namespace Ui {
@@ -18,6 +19,8 @@ class Dialog : public QDialog
 public:
     explicit Dialog(QWidget *parent = 0);
     ~Dialog();
+    void init();
+    void updateParentItem(QTreeWidgetItem* item);
 
 private slots:
   void on_CountBtn_clicked();
@@ -26,7 +29,7 @@ private slots:
 
   //Try another
   void showArea();
-
+    void treeItemChanged(QTreeWidgetItem *Item,int column);
 private:
     Ui::Dialog *ui;
     //Another try;
