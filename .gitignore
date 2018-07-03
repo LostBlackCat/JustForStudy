@@ -260,4 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 QT/Try2/build-Try2-Desktop_Qt_5_11_1_MSVC2017_64bit-Debug/
-QT\QWidget\build-QWidget-Desktop_Qt_5_11_1_MSVC2017_64bit-Debug
+QT/QWidget/build-QWidget-Desktop_Qt_5_11_1_MSVC2017_64bit-Debug/

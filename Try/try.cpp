@@ -3,6 +3,9 @@
 #include<fstream>
 #include<stdexcept>
 #include<exception>
+#include<ctime>
+#include<cstdlib>
+#include<Windows.h>
 class C
 {
 public:
@@ -118,15 +121,15 @@ int getMain();
 /////////////////////////////////////////////////////////////////////////////////////////
 int main()
 {
-	if (true)
-	{
-		getMain();
-		return 0;
-	}
-	using std::fstream;
-	using std::cout;
-	using std::cin;
-	C aaa;
+	//if (true)
+	//{
+	//	getMain();
+	//	return 0;
+	//}
+	//using std::fstream;
+	//using std::cout;
+	//using std::cin;
+	//C aaa;
 	//cout << std::right << std::setw(10) << 'T';
 	//fstream a;
 	//a.open("a.txt",std::ios::out|std::ios::in/*|std::ios::app*/);
@@ -142,29 +145,33 @@ int main()
 	//char * b=new char[100];
 	//a >> b;
 	//cout << std::endl<<b;
-	int * intArr = new int[10];
-	intArr++;
-	delete --intArr;
-	add(2, 3);
-	std::set_new_handler(terminate_handle);
-	std::exception expA{"expAAA"};
-	//cout << expA.what();
-	std::runtime_error::exception rteA;
-	set_terminate(terminate_handle);
-	A<double> dblAa;
-	try
-	{
-		throw(B<int>(1));
-		throw(expA);
-		
-	}
-	catch (A<int>  & )
-	{
-		std::cout << "A called\n";
-	}
-	catch (std::exception &exp)
-	{
-		std::cout << exp.what();
-	}
+	//int * intArr = new int[10];
+	//intArr++;
+	//delete --intArr;
+	//add(2, 3);
+	//std::set_new_handler(terminate_handle);
+	//std::exception expA{"expAAA"};
+	////cout << expA.what();
+	//std::runtime_error::exception rteA;
+	//set_terminate(terminate_handle);
+	//A<double> dblAa;
+	//try
+	//{
+	//	throw(B<int>(1));
+	//	throw(expA);
+	//	
+	//}
+	//catch (A<int>  & )
+	//{
+	//	std::cout << "A called\n";
+	//}
+	//catch (std::exception &exp)
+	//{
+	//	std::cout << exp.what();
+	//}
+	srand(time(0));
+	std::cout << "A";
+	Sleep(5000);
+	std::cout << "B";
 	return 0;
 }
