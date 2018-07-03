@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
   QHBoxLayout layout(window);
   QLineEdit *lineEdit=new QLineEdit("Line edit",window);
 
+
   window->resize(320,240);
   w.setGeometry(100,100,200,120);
   layout.addWidget(button);
@@ -24,4 +25,9 @@ int main(int argc, char *argv[])
   window->show();
   w.close();
   return a.exec();
+}
+void Widget::click()
+{
+  QLineEdit * test=new QLineEdit("Clicked",this);
+  test->show();
 }
