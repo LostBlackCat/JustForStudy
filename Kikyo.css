@@ -13,3 +13,9 @@ body
 {
     margin:10pt;
 }
+.wrapper
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
