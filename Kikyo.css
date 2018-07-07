@@ -19,3 +19,17 @@ body
     margin-right: auto;
     width: 80%;
 }
+.dashedborder
+{
+    border-width: 3px;
+    border-style: dashed;
+    border-color: #268785;
+    box-shadow: 3px 3px 20px;
+    border-radius: 15px
+}
+.grooveborder
+{
+    border-width: 3px;
+    border-style: groove;
+    border-color: #0d5661;   
+}
