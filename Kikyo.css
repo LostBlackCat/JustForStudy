@@ -1,34 +1,49 @@
-.Kikyo 
-{
-    color:#6a4c9c;
+.Kikyo {
+    color: #6a4c9c;
     font-size: 1em;
     text-shadow: 3px 3px 6px #8F77B5;
 }
-body 
-{
+
+body {
     background-color: #f6efe4;
 }
-.blank
-{
-    margin:10pt;
+
+.blank {
+    margin: 10pt;
 }
-.wrapper
-{
+
+.wrapper {
     margin-left: auto;
     margin-right: auto;
     width: 80%;
 }
-.dashedborder
-{
+
+.dashedborder {
     border-width: 3px;
     border-style: dashed;
     border-color: #268785;
     box-shadow: 3px 3px 20px;
     border-radius: 15px
 }
-.grooveborder
-{
+
+.grooveborder {
     border-width: 3px;
     border-style: groove;
-    border-color: #0d5661;   
+    border-color: #0d5661;
 }
+
+.backgroundimagine {
+    border-width: 3px;
+    border-style: dashed;
+    border-color: #268785;
+    box-shadow: 3px 3px 20px;
+    border-radius: 15px;
+    background-image: url(boxbackground.jpg);
+    background-clip: border-box;
+    
+}
+
+/*
+    background-image: url(boxbackground.jpg);
+    background-clip: border-box;
+*/
