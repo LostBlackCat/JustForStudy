@@ -20,4 +20,4 @@ with tf.Session() as sess:
   # 运行 op, 更新 'state', 并打印 'state'
   for _ in range(3):
     sess.run(update)
-    print sess.run(state)
+	print(sess.run(state)）
