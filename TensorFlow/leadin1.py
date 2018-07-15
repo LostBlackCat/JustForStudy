@@ -1,3 +1,4 @@
+import tensorflow as tf
 # 创建一个变量, 初始化为标量 0.
 state = tf.Variable(0, name="counter")
 
@@ -20,4 +21,4 @@ with tf.Session() as sess:
   # 运行 op, 更新 'state', 并打印 'state'
   for _ in range(3):
     sess.run(update)
-	print(sess.run(state)）
+    print(sess.run(state))
