@@ -1,5 +1,6 @@
 import tensorflow as tf
-
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 # 创建一个常量 op, 产生一个 1x2 矩阵. 这个 op 被作为一个节点
 # 加到默认图中.
 #
