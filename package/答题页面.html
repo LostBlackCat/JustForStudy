@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>校史竞赛系统-登陆</title>
+        <style type="text/css">
+        *{
+        box-sizing: border-box;
+        box-shadow: 20x;
+        }
+        body{
+        background-color: #666;
+        font-family: Arial,sans-serif;
+        margin: 0;
+        }
+        a:link {color:#000000;}      /* 未访问链接*/
+        a:visited {color:#00FF00;}  /* 已访问链接 */
+        a:hover {color:#FF00FF;}  /* 鼠标移动到链接上 */
+        a:active {color:#0000FF;}  /* 鼠标点击时 */
+        /*在CSS定义中，a:hover 必须被置于 a:link 和 a:visited 之后，才是有效的。
+        注意： 在 CSS 定义中，a:active 必须被置于 a:hover 之后，才是有效的。*/
+        .top{
+        height: 100px;
+        background-repeat: no-repeat;
+        background-image: url(logo.png);
+        background-size: 100px 100px;
+        background-position: left top;
+        font-size: 20px;
+        color: white;
+        text-align: center;
+        padding-top: 20px;
+        }
+        .top button{
+        position: bottom;
+        float: right;
+        margin-right:45px;
+        padding: 15px 25px;
+        /*background-color: #ff4500;*/
+        }
+        
+        .middle{
+        height: 440px;
+        /*margin-bottom:20px;*/
+        background-color: rgba(255,255,255,0.7);
+        }
+        .mid_left{
+        float: left;
+        margin:0;
+        height: 100%;
+        width:75%;
+        /*border-radius: 20px;
+        box-shadow: 10px 10px 5px #888888;*/
+        background-image: url(bg_01.jpg);
+        background-size: 100% 100%;
+        align-content: center;
+        }
+        .mid_left .btn{
+
+        }
+        .mid_left #question{
+        margin-left: 20%;
+        margin-right: 20%;
+        margin-top: 0;
+        margin-bottom: 0;
+        height: 100%;
+        width: 60%;
+        background-color: rgba(255,255,255,0.7);
+        padding-top: 20px;
+        padding-left: 40px;
+        }
+        .mid_right{
+        float: right;
+        /*margin-left: 10px;*/
+        /*border-left:2px inset white;*/
+        /*padding-left:10px;*/
+        height: 100%;
+        width: 20%;
+        }
+        .mid_right table{
+        height: 100%
+        width:100%;
+        }
+        th,td{
+        background-color: #FF4500;
+        border-radius: 5px;
+        box-shadow: 5px 5px 2px #888888;
+        text-align: center;
+        padding: 10px;
+        color: white;
+        margin: 10px solid white;
+        }
+        .bottom{
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+        height: 90px;
+        background-color: #333;
+        color: white;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="top">
+            <button type="button">返回主页</button>
+            <button type="submit">提交试卷</button>
+            剩余时间：/*time*/
+        </div>
+        <div class="middle">
+            <div class="mid_left">
+                <div class="btn">
+                <a href="javascript:void(0)" id="btn_igl" class="sc_lightdis" title="上一页">
+                                
+                                    <div id="tblPrev" class="tblPrev"></div>
+                                
+                            </a>
+                        </div>
+                <div id="question">
+                    <p>这里是题目</p>
+                    <form>
+                        <input type="radio" name="options" value="option1">选项1<br>
+                        <input type="radio" name="options" value="option2">选项2<br>
+                        <input type="radio" name="options" value="option3">选项3<br>
+                        <input type="radio" name="options" value="option4">选项4
+                    </form>
+                </div>
+                <div class="btn">
+                <a href="javascript:void(0)" id="btn_igl" class="sc_lightdis" title="下一页">
+                                
+                                    <div id="tblNext" class="tblNext"></div>
+                                
+                            </a>
+                        </div>
+            </div>
+            <!-- /*记录答题情况的表格*/ -->
+            <div class="mid_right">
+                <p>答题记录：</p><p>选择题</p>
+                <table>
+                    
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>12</td>
+                        <td>13</td>
+                        <td>14</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>17</td>
+                        <td>18</td>
+                        <td>19</td>
+                        <td>20</td>
+                    </tr>
+                </table>
+                    <p>判断题</p>
+                    <table>
+                    <tr>
+                        <td>21</td>
+                        <td>22</td>
+                        <td>23</td>
+                        <td>24</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td>27</td>
+                        <td>28</td>
+                        <td>29</td>
+                        <td>30</td>
+                    </tr></table>
+                </table>
+            </div>
+        </div>
+        <div class="bottom">
+            <p>请检查确认后提交</p>
+        </div>
+    </body>
+</html>
