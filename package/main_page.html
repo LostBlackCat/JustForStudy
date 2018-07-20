@@ -1,19 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>主页</title>
     <link rel="icon" href="pic_logo_seu.ico" type="image/x-icon">
     <link rel="shortcut icon" href="pic_logo_seu.ico" type="image/x-icon">
+    <style type="text/css">
+        body {
+            background-color: #66bab7;
+            /*#66bab7[水浅葱]#6a8372[老竹]*/
+            background-repeat: no-repeat;
+            background-image: url(bg_01.jpg);
+            background-position: center center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        #buttonBox {
+            border-style: none; /*soild;*/
+            border-radius: 15px;
+            width: 400px;
+            height: 300px;
+            margin: 0;
+            padding: 50px;
+            box-shadow: 5px 5px 15px;
+            color: #6a8372;
+            /*#66bab7[水浅葱]#6a8372[老竹]*/
+            background-color: #ffffff70;
+            position: absolute;
+            left: 30%;
+            top: 30%;
+        }
+
+        input {
+            background-color: #ffffff70;
+            border-bottom-style: dashed;
+            border-radius: 15px;
+            width: 100%;
+            height: 80px;
+            margin: 10px;
+            font-size: 1.5em;
+            color: #000000aa;
+        }
+    </style>
 </head>
+
 <body>
     <p th:text="'欢迎！'+${username}+'!'">
-    <br>
-    <div>
-        <input type="button" value="开始答题">
-        <input type="button" value="查看成绩">
-        <input type="button" value="退出登陆">
-    </div>
+        <br>
+        <div id="buttonBox">
+            <input type="button" value="开始答题">
+            <input type="button" value="查看成绩">
+            <input type="button" value="退出登陆">
+        </div>
 </body>
+
 </html>
