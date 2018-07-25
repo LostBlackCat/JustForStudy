@@ -12,6 +12,10 @@
                         var str = '<div>姓名:' + item.name + '性别：' + item.sex + '</div>';
                         document.write(str);
                     });
+                    $.each(data.list, function (i, item) {
+                        var str = '<div>name:' + item.name + 'url:' + item.url + '</div>';
+                        document.write(str);
+                    });
                 });
             });
         });
