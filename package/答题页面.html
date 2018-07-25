@@ -6,6 +6,32 @@
     <title>校史竞赛系统-登陆</title>
     <link rel="icon" href="pic_logo_seu.ico" type="image/x-icon">
     <link rel="shortcut icon" href="pic_logo_seu.ico" type="image/x-icon">
+    <script type="text/javascript" src="jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("button#submit").click(function () {
+                $.getJSON("get_paper.json", "", function (data) {
+                    // each循环 使用$.each方法遍历返回的数据date
+                    var code=data.code;
+                    var paperID=data.paperID;
+                    var question=new Array();
+                    var choice=new Array();
+                    alert("Code:"+code+"\n"+"paperID:"+paperID);
+
+                    $.each(data.questions, function (i, item) {
+                        question[i]=item.question;
+                        alert(question[i]);
+                        choice[i]=item.choices;
+                        alert(choice[i]);
+                     });
+                    // $.each(data.list, function (i, item) {
+                    //     var str = '<div>name:' + item.name + 'url:' + item.url + '</div>';
+                    //     document.write(str);
+                    // });
+                });
+            });
+        });
+    </script>
     <style type="text/css">
         * {
             box-sizing: border-box;
@@ -47,11 +73,6 @@
             color: #0000FF;
         }
 
-        /* 鼠标点击时 */
-
-        /*在CSS定义中，a:hover 必须被置于 a:link 和 a:visited 之后，才是有效的。
-        注意： 在 CSS 定义中，a:active 必须被置于 a:hover 之后，才是有效的。*/
-
         .top {
             height: 100px;
             background-repeat: no-repeat;
@@ -75,7 +96,7 @@
             min-height: 450px;
             width: 100%;
             position: absolute;
-            top:100px;
+            top: 100px;
             bottom: 90px;
             left: 0;
             background-color: rgba(255, 255, 255, 0.7);
@@ -137,6 +158,7 @@
             position: absolute;
             bottom: 0;
         }
+
         button {
             text-align: center;
             background-color: #00000070;
@@ -150,7 +172,7 @@
 <body>
     <div class="top">
         <button type="button">返回主页</button>
-        <button type="submit">提交试卷</button>
+        <button id="submit" type="submit">提交试卷</button>
         剩余时间：/*time*/
     </div>
     <div class="middle">
@@ -187,7 +209,6 @@
             <p>答题记录：</p>
             <p>选择题</p>
             <table>
-
                 <tr>
                     <td>1</td>
                     <td>2</td>
