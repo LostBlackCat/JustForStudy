@@ -14,52 +14,103 @@
         var question;
         var choice;
         var currentID = 0;
-        var answer=new Array(30);
-        var isDone=new Array(30);
-        for(var i=0;i<30;i++){
-            answer[i]=-1;
+        var answer = new Array();
+        var isDone = new Array();
+        var topNumber = 30;
+        for (var i = 0; i < topNumber; i++) {
+            answer[i] = -1;
         }
         $(document).ready(function () {
-                $.getJSON("get_paper.json", "", function (data) {
-                    code = data.code;
-                    paperID = data.paperID;
-                    question = new Array();
-                    choice = new Array();
-                    console.log("Code:" + code + "\n" + "paperID:" + paperID);
-                    $.each(data.questions, function (i, item) {
-                        question[i] = item.question;
-                        console.log("question[" + i + "]=" + question[i]);
-                        choice[i] = item.choices;
-                        console.log("choice[" + i + "]=" + choice[i]);
-                    });
-                    $("p#on_show_question").html(question[currentID]);
-                    if (choice[currentID] == null) {
+            $("button#prev").hide();
 
-                        $("#on_show_choiceA").html("[✖]错误");
-                        $("#on_show_choiceB").html("[✔]正确");
-                        $("#on_show_choiceC").html("");
-                        $("#on_show_choiceD").html("");
-                    }
-                    else {
-                        $("#on_show_choiceA").html("A: "+choice[currentID][0]);
-                        $("#on_show_choiceB").html("B: "+choice[currentID][1]);
-                        $("#on_show_choiceC").html("C: "+choice[currentID][2]);
-                        $("#on_show_choiceD").html("D: "+choice[currentID][3]);
-                    }
+            $.getJSON("get_paper.json", "", function (data) {
+                code = data.code;
+                paperID = data.paperID;
+                question = new Array();
+                choice = new Array();
+                console.log("Code:" + code + "\n" + "paperID:" + paperID);
+                $.each(data.questions, function (i, item) {
+                    question[i] = item.question;
+                    // console.log("question[" + i + "]=" + question[i]);
+                    choice[i] = item.choices;
+                    // console.log("choice[" + i + "]=" + choice[i]);
                 });
-            $("#on_show_choiceA").click(function(){
-                answer[currentID]=0;
+                $("p#on_show_question").html(question[currentID]);
+                if (choice[currentID] == null) {
+
+                    $("#on_show_choiceA").html("[✖]错误");
+                    $("#on_show_choiceB").html("[✔]正确");
+                    $("#on_show_choiceC").html("");
+                    $("#on_show_choiceD").html("");
+                }
+                else {
+                    $("#on_show_choiceA").html("A: " + choice[currentID][0]);
+                    $("#on_show_choiceB").html("B: " + choice[currentID][1]);
+                    $("#on_show_choiceC").html("C: " + choice[currentID][2]);
+                    $("#on_show_choiceD").html("D: " + choice[currentID][3]);
+                }
             });
-            $("#on_show_choiceB").click(function(){
-                answer[currentID]=1;
+            $("#on_show_choiceA").click(function () {
+                answer[currentID] = 0;
             });
-            $("#on_show_choiceC").click(function(){
-                answer[currentID]=2;
+            $("#on_show_choiceB").click(function () {
+                answer[currentID] = 1;
             });
-            $("#on_show_choiceD").click(function(){
-                answer[currentID]=3;
+            $("#on_show_choiceC").click(function () {
+                answer[currentID] = 2;
             });
+            $("#on_show_choiceD").click(function () {
+                answer[currentID] = 3;
+            });
+            $("#prev").click(function () {
+                if (currentID == 1) {
+                    $(this).fadeOut();
+                }
+                else if(currentID==topNumber-1){
+                    $("#next").fadeIn();
+                }
+                currentID = currentID - 1;
+                $("p#on_show_question").html(question[currentID]);
+                if (choice[currentID] == null) {
+
+                    $("#on_show_choiceA").html("[✖]错误");
+                    $("#on_show_choiceB").html("[✔]正确");
+                    $("#on_show_choiceC").html("");
+                    $("#on_show_choiceD").html("");
+                }
+                else {
+                    $("#on_show_choiceA").html("A: " + choice[currentID][0]);
+                    $("#on_show_choiceB").html("B: " + choice[currentID][1]);
+                    $("#on_show_choiceC").html("C: " + choice[currentID][2]);
+                    $("#on_show_choiceD").html("D: " + choice[currentID][3]);
+                }
+            });
+            $("#next").click(function () {
+            if (currentID == topNumber - 2) {
+                $(this).fadeOut();
+            }
+            else if(currentID==0){
+            $("#prev").fadeIn();
+            };
+            currentID = currentID + 1;
+
+            $("p#on_show_question").html(question[currentID]);
+            if (choice[currentID] == null) {
+
+                $("#on_show_choiceA").html("[✖]错误");
+                $("#on_show_choiceB").html("[✔]正确");
+                $("#on_show_choiceC").html("");
+                $("#on_show_choiceD").html("");
+            }
+            else {
+                $("#on_show_choiceA").html("A: " + choice[currentID][0]);
+                $("#on_show_choiceB").html("B: " + choice[currentID][1]);
+                $("#on_show_choiceC").html("C: " + choice[currentID][2]);
+                $("#on_show_choiceD").html("D: " + choice[currentID][3]);
+            }
         });
+        });
+
     </script>
     <style type="text/css">
         * {
@@ -141,7 +192,8 @@
             background-size: 100% 100%;
             align-content: center;
         }
-        #prev{
+
+        #prev {
             font-size: 2em;
             text-align: center;
             width: 60px;
@@ -149,9 +201,10 @@
             position: relative;
             float: left;
             left: 10%;
-            top:40%;
+            top: 40%;
         }
-        #next{
+
+        #next {
             font-size: 2em;
             text-align: center;
             width: 60px;
@@ -159,8 +212,9 @@
             position: relative;
             float: right;
             right: 10%;
-            top:40%;
+            top: 40%;
         }
+
         .mid_left #question {
             margin-left: 20%;
             margin-right: 20%;
@@ -218,7 +272,6 @@
 </head>
 
 <body>
-    <button id="test" style="position: absolute">test</button>
     <div class="top">
         <button type="button">返回主页</button>
         <button id="submit" type="submit">提交试卷</button>
