@@ -9,26 +9,25 @@
     <script type="text/javascript" src="jquery-3.3.1.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $("button#submit").click(function () {
+            $("button#test").click(function () {
+
                 $.getJSON("get_paper.json", "", function (data) {
                     // each循环 使用$.each方法遍历返回的数据date
-                    var code=data.code;
-                    var paperID=data.paperID;
-                    var question=new Array();
-                    var choice=new Array();
-                    alert("Code:"+code+"\n"+"paperID:"+paperID);
-
+                    var code = data.code;
+                    var paperID = data.paperID;
+                    var question = new Array();
+                    var choice = new Array();
+                    console.log("Code:" + code + "\n" + "paperID:" + paperID);
                     $.each(data.questions, function (i, item) {
-                        question[i]=item.question;
-                        alert(question[i]);
-                        choice[i]=item.choices;
-                        alert(choice[i]);
-                     });
-                    // $.each(data.list, function (i, item) {
-                    //     var str = '<div>name:' + item.name + 'url:' + item.url + '</div>';
-                    //     document.write(str);
-                    // });
+                        question[i] = item.question;
+                        console.log("question[" + i + "]=" + question[i]);
+                        choice[i] = item.choices;
+                        console.log("choice[" + i + "]=" + choice[i]);
+                    });
                 });
+                $("input#on_show_choice0").attr("value","choice[0]");
+                $("p#on_show_question").html("question[0]");
+                console.log(question[0]);
             });
         });
     </script>
@@ -170,6 +169,7 @@
 </head>
 
 <body>
+    <button id="test" style="position: absolute">test</button>
     <div class="top">
         <button type="button">返回主页</button>
         <button id="submit" type="submit">提交试卷</button>
@@ -185,15 +185,15 @@
                 </a>
             </div>
             <div id="question">
-                <p>这里是题目</p>
+                <p id="on_show_question"></p>
                 <form>
-                    <input type="radio" name="options" value="option1">选项1
+                    <input id="on_show_choice0" type="radio" name="options" value="option1">
                     <br>
-                    <input type="radio" name="options" value="option2">选项2
+                    <input id="on_show_choice1" type="radio" name="options" value="option2">
                     <br>
-                    <input type="radio" name="options" value="option3">选项3
+                    <input id="on_show_choice2" type="radio" name="options" value="option3">
                     <br>
-                    <input type="radio" name="options" value="option4">选项4
+                    <input id="on_show_choice3" type="radio" name="options" value="option4">
                 </form>
             </div>
             <div class="btn">
@@ -208,7 +208,7 @@
         <div class="mid_right">
             <p>答题记录：</p>
             <p>选择题</p>
-            <table>
+            <table id="table">
                 <tr>
                     <td>1</td>
                     <td>2</td>
