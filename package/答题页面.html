@@ -8,15 +8,19 @@
     <link rel="shortcut icon" href="pic_logo_seu.ico" type="image/x-icon">
     <script type="text/javascript" src="jquery-3.3.1.js"></script>
     <script type="text/javascript">
+
+        var code;
+        var paperID;
+        var question;
+        var choice;
+        var currentID = 20;
         $(document).ready(function () {
             $("button#test").click(function () {
-
                 $.getJSON("get_paper.json", "", function (data) {
-                    // each循环 使用$.each方法遍历返回的数据date
-                    var code = data.code;
-                    var paperID = data.paperID;
-                    var question = new Array();
-                    var choice = new Array();
+                    code = data.code;
+                    paperID = data.paperID;
+                    question = new Array();
+                    choice = new Array();
                     console.log("Code:" + code + "\n" + "paperID:" + paperID);
                     $.each(data.questions, function (i, item) {
                         question[i] = item.question;
@@ -24,9 +28,22 @@
                         choice[i] = item.choices;
                         console.log("choice[" + i + "]=" + choice[i]);
                     });
+                    $("p#on_show_question").html(question[currentID]);
+                    if (choice[currentID] == null) {
+
+                        $("#on_show_choiceA").html("[✔]正确");
+                        $("#on_show_choiceB").html("[✖]错误");
+                        $("#on_show_choiceC").html("");
+                        $("#on_show_choiceD").html("");
+                    }
+                    else {
+                        $("#on_show_choiceA").html("A: "+choice[currentID][0]);
+                        $("#on_show_choiceB").html("B: "+choice[currentID][1]);
+                        $("#on_show_choiceC").html("C: "+choice[currentID][2]);
+                        $("#on_show_choiceD").html("D: "+choice[currentID][3]);
+                    }
                 });
-                $("input#on_show_choice0").attr("value","choice[0]");
-                $("p#on_show_question").html("question[0]");
+
                 console.log(question[0]);
             });
         });
@@ -186,14 +203,18 @@
             </div>
             <div id="question">
                 <p id="on_show_question"></p>
-                <form>
-                    <input id="on_show_choice0" type="radio" name="options" value="option1">
+                <form id="forma">
+                    <!-- <input type="radio" name="options" value="option1"> -->
+                    <span id="on_show_choiceA"></span>
                     <br>
-                    <input id="on_show_choice1" type="radio" name="options" value="option2">
+                    <!-- <input type="radio" name="options" value="option2"> -->
+                    <span id="on_show_choiceB"></span>
                     <br>
-                    <input id="on_show_choice2" type="radio" name="options" value="option3">
+                    <!-- <input type="radio" name="options" value="option3"> -->
+                    <span id="on_show_choiceC"></span>
                     <br>
-                    <input id="on_show_choice3" type="radio" name="options" value="option4">
+                    <!-- <input type="radio" name="options" value="option4"> -->
+                    <span id="on_show_choiceD"></span>
                 </form>
             </div>
             <div class="btn">

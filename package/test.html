@@ -5,19 +5,7 @@
     <script type="text/javascript" src="jquery-3.3.1.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $("input").click(function () {
-                $.getJSON("test_data.json", "", function (data) {
-                    //each循环 使用$.each方法遍历返回的数据date
-                    $.each(data.first, function (i, item) {
-                        var str = '<div>姓名:' + item.name + '性别：' + item.sex + '</div>';
-                        document.write(str);
-                    });
-                    $.each(data.list, function (i, item) {
-                        var str = '<div>name:' + item.name + 'url:' + item.url   + '</div>';
-                        document.write(str);
-                    });
-                });
-            });
+            $("input").val("fsalkdf");
         });
     </script>
 </head>
