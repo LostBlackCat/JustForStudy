@@ -13,9 +13,13 @@
         var paperID;
         var question;
         var choice;
-        var currentID = 20;
+        var currentID = 0;
+        var answer=new Array(30);
+        var isDone=new Array(30);
+        for(var i=0;i<30;i++){
+            answer[i]=-1;
+        }
         $(document).ready(function () {
-            $("button#test").click(function () {
                 $.getJSON("get_paper.json", "", function (data) {
                     code = data.code;
                     paperID = data.paperID;
@@ -31,8 +35,8 @@
                     $("p#on_show_question").html(question[currentID]);
                     if (choice[currentID] == null) {
 
-                        $("#on_show_choiceA").html("[✔]正确");
-                        $("#on_show_choiceB").html("[✖]错误");
+                        $("#on_show_choiceA").html("[✖]错误");
+                        $("#on_show_choiceB").html("[✔]正确");
                         $("#on_show_choiceC").html("");
                         $("#on_show_choiceD").html("");
                     }
@@ -43,8 +47,17 @@
                         $("#on_show_choiceD").html("D: "+choice[currentID][3]);
                     }
                 });
-
-                console.log(question[0]);
+            $("#on_show_choiceA").click(function(){
+                answer[currentID]=0;
+            });
+            $("#on_show_choiceB").click(function(){
+                answer[currentID]=1;
+            });
+            $("#on_show_choiceC").click(function(){
+                answer[currentID]=2;
+            });
+            $("#on_show_choiceD").click(function(){
+                answer[currentID]=3;
             });
         });
     </script>
@@ -128,7 +141,26 @@
             background-size: 100% 100%;
             align-content: center;
         }
-
+        #prev{
+            font-size: 2em;
+            text-align: center;
+            width: 60px;
+            height: 60px;
+            position: relative;
+            float: left;
+            left: 10%;
+            top:50%;
+        }
+        #next{
+            font-size: 2em;
+            text-align: center;
+            width: 60px;
+            height: 60px;
+            position: relative;
+            float: right;
+            right: 10%;
+            top:50%;
+        }
         .mid_left #question {
             margin-left: 20%;
             margin-right: 20%;
@@ -194,6 +226,8 @@
     </div>
     <div class="middle">
         <div class="mid_left">
+            <button id="prev">◁</button>
+            <button id="next">▷</button>
             <div class="btn">
                 <a href="javascript:void(0)" id="btn_igl" class="sc_lightdis" title="上一页">
 
