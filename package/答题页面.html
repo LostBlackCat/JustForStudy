@@ -22,6 +22,7 @@
 
         $(document).ready(function () {
             $("button#prev").hide();
+            choiceHighlight();
             $.getJSON("get_paper.json", "", function (data) {
                 code = data.code;
                 paperID = data.paperID;
@@ -132,13 +133,26 @@
         }
 
         function choiceHighlight() {
-            $("span").css("color", "#000000");
+            $("span").removeClass("spanSelect");
+            $("span").addClass("spanNormal");
             switch (answer[currentID]) {
                 case -1: break;
-                case 0: $("#on_show_choiceA").css("color", "#268785"); break;
-                case 1: $("#on_show_choiceB").css("color", "#268785"); break;
-                case 2: $("#on_show_choiceC").css("color", "#268785"); break;
-                case 3: $("#on_show_choiceD").css("color", "#268785"); break;
+                case 0:
+                    $("#on_show_choiceA").removeClass("spanNormal");
+                    $("#on_show_choiceA").addClass("spanSelect");
+                    break;
+                case 1:
+                    $("#on_show_choiceB").removeClass("spanNormal");
+                    $("#on_show_choiceB").addClass("spanSelect");
+                    break;
+                case 2:
+                    $("#on_show_choiceC").removeClass("spanNormal");
+                    $("#on_show_choiceC").addClass("spanSelect");
+                    break;
+                case 3:
+                    $("#on_show_choiceD").removeClass("spanNormal");
+                    $("#on_show_choiceD").addClass("spanSelect");
+                    break;
             }
         }
     </script>
@@ -158,7 +172,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            ;
+            cursor: url("cur/curNormal.ico"), auto;
         }
 
         a:link {
@@ -243,6 +257,53 @@
             float: right;
             right: 10%;
             top: 40%;
+        }
+
+        .spanSelect {
+            clear: both;
+            color: #8F77B5;
+            text-shadow: #8F77B5 3px 3px 15px;
+            box-shadow: #8F77B5 5px 5px 20px;
+            border-radius: 20px;
+            padding: 5px;
+            cursor: url("cur/curSelect.ico"), auto;
+            margin: 10px;
+            font-size: 18px;
+            display: block;
+            border: solid;
+            float: left;
+        }
+
+        .spanNormal {
+            clear: both;
+            color: #268785;
+            text-shadow: #268785 3px 3px 15px;
+            box-shadow: #268785 5px 5px 20px;
+            border-radius: 20px;
+            padding: 5px;
+            cursor: url("cur/curSelect.ico"), auto;
+            margin: 10px;
+            font-size: 18px;
+            display: block;
+            border: dotted;
+            float: left;
+        }
+
+        #on_show_question{
+            clear: both;
+            color: #8F77B5;
+            text-shadow: #268785 3px 3px 15px;
+            border-radius: 20px;
+            padding: 5px;
+            cursor: url("cur/curSelect.ico"), auto;
+            margin: 10px;
+            font-size: 18px;
+            display: block;
+            border: none;
+            float: left;
+        }
+        #question{
+            box-shadow: #ffffff 0px 15px 30px;
         }
 
         .mid_left #question {
@@ -401,5 +462,4 @@
         <p>请检查确认后提交</p>
     </div>
 </body>
-
 </html>
