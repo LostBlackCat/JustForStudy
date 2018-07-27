@@ -51,21 +51,26 @@
             });
             $("#on_show_choiceA").click(function () {
                 answer[currentID] = 0;
+
+                choiceHighlight();
             });
             $("#on_show_choiceB").click(function () {
                 answer[currentID] = 1;
+                choiceHighlight();
             });
             $("#on_show_choiceC").click(function () {
                 answer[currentID] = 2;
+                choiceHighlight();
             });
             $("#on_show_choiceD").click(function () {
                 answer[currentID] = 3;
+                choiceHighlight();
             });
             $("#prev").click(function () {
-                currentID=prevQuestion();
+                currentID = prevQuestion();
             });
             $("#next").click(function () {
-            nextQuestion();
+                nextQuestion();
             });
         });
         function prevQuestion() {
@@ -75,8 +80,7 @@
             else if (currentID == topNumber - 1) {
                 $("#next").fadeIn();
             }
-            else if(currentID==0)
-            {
+            else if (currentID == 0) {
                 return currentID;
             }
             // alert("  ");
@@ -95,35 +99,47 @@
                 $("#on_show_choiceC").html("C: " + choice[currentID][2]);
                 $("#on_show_choiceD").html("D: " + choice[currentID][3]);
             }
+            choiceHighlight();
             return currentID;
         }
-        function nextQuestion(){
+        function nextQuestion() {
+            if (currentID == topNumber - 2) {
+                $("#next").fadeOut();
+            }
+            else if (currentID == 0) {
+                $("#prev").fadeIn();
+            }
+            else if (currentID == topNumber - 1) {
+                return currentID;
+            }
+            currentID = currentID + 1;
+            $("p#on_show_question").html(question[currentID]);
+            if (choice[currentID] == null) {
 
-                if (currentID == topNumber - 2) {
-                    $("#next").fadeOut();
-                }
-                else if (currentID == 0) {
-                    $("#prev").fadeIn();
-                }
-                else if(currentID==topNumber-1)
-                {
-                    return currentID;
-                }
-                currentID = currentID + 1;
-                $("p#on_show_question").html(question[currentID]);
-                if (choice[currentID] == null) {
+                $("#on_show_choiceA").html("[✖]错误");
+                $("#on_show_choiceB").html("[✔]正确");
+                $("#on_show_choiceC").html("");
+                $("#on_show_choiceD").html("");
+            }
+            else {
+                $("#on_show_choiceA").html("A: " + choice[currentID][0]);
+                $("#on_show_choiceB").html("B: " + choice[currentID][1]);
+                $("#on_show_choiceC").html("C: " + choice[currentID][2]);
+                $("#on_show_choiceD").html("D: " + choice[currentID][3]);
+            }
+            choiceHighlight();
+            return currentID;
+        }
 
-                    $("#on_show_choiceA").html("[✖]错误");
-                    $("#on_show_choiceB").html("[✔]正确");
-                    $("#on_show_choiceC").html("");
-                    $("#on_show_choiceD").html("");
-                }
-                else {
-                    $("#on_show_choiceA").html("A: " + choice[currentID][0]);
-                    $("#on_show_choiceB").html("B: " + choice[currentID][1]);
-                    $("#on_show_choiceC").html("C: " + choice[currentID][2]);
-                    $("#on_show_choiceD").html("D: " + choice[currentID][3]);
-                }
+        function choiceHighlight() {
+            $("span").css("color", "#000000");
+            switch (answer[currentID]) {
+                case -1: break;
+                case 0: $("#on_show_choiceA").css("color", "#268785"); break;
+                case 1: $("#on_show_choiceB").css("color", "#268785"); break;
+                case 2: $("#on_show_choiceC").css("color", "#268785"); break;
+                case 3: $("#on_show_choiceD").css("color", "#268785"); break;
+            }
         }
     </script>
     <style type="text/css">
