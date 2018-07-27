@@ -3,7 +3,7 @@
     "paperID": 2,
     "questions": [
         {
-            "question": "问题6",
+            "question": "问题1",
             "choices": [
                 "选项1",
                 "选项2",
@@ -12,7 +12,7 @@
             ]
         },
         {
-            "question": "问题8",
+            "question": "问题2",
             "choices": [
                 "选项1",
                 "选项2",
@@ -21,7 +21,7 @@
             ]
         },
         {
-            "question": "问题5",
+            "question": "问题3",
             "choices": [
                 "选项1",
                 "选项2",
@@ -30,7 +30,7 @@
             ]
         },
         {
-            "question": "问题7",
+            "question": "问题4",
             "choices": [
                 "选项1",
                 "选项2",
